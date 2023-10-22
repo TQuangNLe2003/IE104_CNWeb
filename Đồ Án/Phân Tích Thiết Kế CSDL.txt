@@ -1,0 +1,77 @@
+1) Bảng Role
+	- id: int --> khóa chính tự tăng
+	- name: String (varchar) - 20 kí tự
+2) Bảng User
+	- id: ỉnt --> khóa chính tự tăng
+	- fullname: string --> 50 kí tự
+	- email: string --> 150 kí tự  unique
+	- phone_number: string --> 20 kí tự
+	- address: string --> 200 kí tự
+	- password: string --> mã hóa md5 --> 32 ký tự --> chính xác
+	- role_íd --> int --> foreign key  --> role(id)
+	- created_at: datetime -> tạo bản ghi
+	- update_at: datetime -> sửa bản ghi
+3) Bảng Danh Mục --> category 
+	- id: int  --> khóa tự tăng
+	- name: string --> 100 kí tự
+
+4) Bảng sản phẩm -> Product
+	- id: ỉnt --> khóa chính tự tăng
+	- category_id -> int là foreign_key liên kết category(id)
+	- title: string -> 350 kí tự
+	- price: int -> 
+	- discount: int 
+	- thumbnail: string -> 500 kí tự
+	- description: longtext
+	- created_at: datetime -> tạo bản ghi
+	- update_at: datetime -> sửa bản ghi 
+
+5) Bảng quản lý galery
+	-id: int -> khóa tự tăng
+	- product_id -> int -> foreign_key tham chiếu bảng Product(id)
+	- thumbnail: string -> 500 kí tự
+	- 
+
+6) Bảng quản lý phản hồi (Feedback)
+	- id: ỉnt --> khóa chính tự tăng
+	- first_name -> string 30 kí tự
+	- email: string --> 150 kí tự  
+	- phone_number: string --> 20 kí tự
+	- subject_name : string 200 kí tự
+	- note -> string(varchar) -> độ dài tối đa --> 500 kí tự
+	
+7) Quản lý đơn hàng:
+	- id: int tự tăng
+	- fullname: 
+	- email
+	- phone_number
+	- address
+	- note
+	- order_date: datatime --> thời điểm đặt đơn hàng
+	- Danh sách sản phẩm
+		- sản phẩm 1 x số lượng x giá thời điểm mua
+		- sản phẩm 2 x số lượng x giá thời điểm mua
+
+	7.1) Bảng Order
+		- id: int tự tăng
+		- user_id: int -> foreign_key to User(id)
+		- fullname: 
+		- email
+		- phone_number
+		- address
+		- note
+		- order_date: datatime --> thời điểm đặt đơn hàng
+		- status:  int  -> (pending, approved, ...)
+		- Total_money -> tổng tiền của sản phẩm ( price * num )
+	7.2) Bảng chi tiết đơn hàng
+		- id: int tự tăng
+		- order_id : int --> foreign_key liên kết với bản Order(id)
+		- product_id  -> int  -> foreign_key tham chiếu bảng Product(id)
+		- price -> int 
+		- num -> số lượng sản phẩm mua 
+		- total_money -> tổng tiền của sản phẩm ( price * num )
+		
+
+Tạ DataBase: data_base.sql
+
+ 
